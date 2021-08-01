@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:introduction_screen/introduction_screen.dart';
+import 'package:profile_card/form_input.dart';
 
 void main() => runApp(MyApp());
 
@@ -74,7 +75,12 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
         showNextButton: false,
         showSkipButton: false,
         done: Text('Done'),
-        onDone: () {},
+        onDone: () {
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (BuildContext context) => FormInput()));
+        },
       ),
     );
   }
