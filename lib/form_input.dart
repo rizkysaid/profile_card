@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:profile_card/profile_card.dart';
 
 class FormInput extends StatefulWidget {
   @override
@@ -151,6 +152,7 @@ class _FormInputState extends State<FormInput> {
               ),
               SizedBox(height: 20),
               TextFormField(
+                controller: websiteController,
                 decoration: InputDecoration(
                   labelText: "Website",
                   hintText: 'Masukan website anda',
@@ -185,8 +187,17 @@ class _FormInputState extends State<FormInput> {
                       shape: const RoundedRectangleBorder(
                           borderRadius: BorderRadius.all(Radius.circular(20)))),
                   onPressed: () {
-                    // login(nohpController.text);
-                    print(namaController.text);
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (BuildContext context) => ProfileCard(
+                            namaController.text,
+                            pekerjaanController.text,
+                            alamatController.text,
+                            emailController.text,
+                            websiteController.text),
+                      ),
+                    );
                   },
                   child: Text(
                     "Tampilkan Profile",
