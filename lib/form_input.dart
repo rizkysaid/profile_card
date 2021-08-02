@@ -6,6 +6,12 @@ class FormInput extends StatefulWidget {
 }
 
 class _FormInputState extends State<FormInput> {
+  TextEditingController namaController = TextEditingController();
+  TextEditingController pekerjaanController = TextEditingController();
+  TextEditingController alamatController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
+  TextEditingController websiteController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,7 +30,7 @@ class _FormInputState extends State<FormInput> {
               ),
               SizedBox(height: 20),
               TextFormField(
-                // controller: nohpController,
+                controller: namaController,
                 // keyboardType: TextInputType.number,
                 // onChanged: (value) {
                 //   if (value.isNotEmpty) {
@@ -62,22 +68,10 @@ class _FormInputState extends State<FormInput> {
               ),
               SizedBox(height: 20),
               TextFormField(
-                // controller: nohpController,
-                keyboardType: TextInputType.number,
-                // onChanged: (value) {
-                //   if (value.isNotEmpty) {
-                //     setState(() {
-                //       isButtonDisabled = false;
-                //     });
-                //   } else {
-                //     setState(() {
-                //       isButtonDisabled = true;
-                //     });
-                //   }
-                // },
+                controller: pekerjaanController,
                 decoration: InputDecoration(
-                  labelText: "Usia",
-                  hintText: 'Masukan usia anda',
+                  labelText: "Pekerjaan",
+                  hintText: 'Masukan pekerjaan anda',
                   floatingLabelBehavior: FloatingLabelBehavior.always,
                   suffixIcon: Padding(
                       padding: EdgeInsets.fromLTRB(0, 10, 10, 10),
@@ -102,19 +96,36 @@ class _FormInputState extends State<FormInput> {
                 height: 20,
               ),
               TextFormField(
-                // controller: nohpController,
+                controller: alamatController,
+                decoration: InputDecoration(
+                  labelText: "Alamat",
+                  hintText: 'Masukan alamat anda',
+                  floatingLabelBehavior: FloatingLabelBehavior.always,
+                  suffixIcon: Padding(
+                      padding: EdgeInsets.fromLTRB(0, 10, 10, 10),
+                      child: Icon(Icons.people_alt)),
+                  contentPadding: EdgeInsets.symmetric(
+                    horizontal: 42,
+                    vertical: 20,
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(28),
+                    borderSide: BorderSide(color: Colors.black),
+                    gapPadding: 10,
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(28),
+                    borderSide: BorderSide(color: Colors.blue),
+                    gapPadding: 10,
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              TextFormField(
+                controller: emailController,
                 keyboardType: TextInputType.emailAddress,
-                // onChanged: (value) {
-                //   if (value.isNotEmpty) {
-                //     setState(() {
-                //       isButtonDisabled = false;
-                //     });
-                //   } else {
-                //     setState(() {
-                //       isButtonDisabled = true;
-                //     });
-                //   }
-                // },
                 decoration: InputDecoration(
                   labelText: "Email",
                   hintText: 'Masukan email anda',
@@ -140,22 +151,9 @@ class _FormInputState extends State<FormInput> {
               ),
               SizedBox(height: 20),
               TextFormField(
-                // controller: nohpController,
-                keyboardType: TextInputType.number,
-                // onChanged: (value) {
-                //   if (value.isNotEmpty) {
-                //     setState(() {
-                //       isButtonDisabled = false;
-                //     });
-                //   } else {
-                //     setState(() {
-                //       isButtonDisabled = true;
-                //     });
-                //   }
-                // },
                 decoration: InputDecoration(
-                  labelText: "Alamat",
-                  hintText: 'Masukan alamat anda',
+                  labelText: "Website",
+                  hintText: 'Masukan website anda',
                   floatingLabelBehavior: FloatingLabelBehavior.always,
                   suffixIcon: Padding(
                       padding: EdgeInsets.fromLTRB(0, 10, 10, 10),
@@ -176,7 +174,7 @@ class _FormInputState extends State<FormInput> {
                   ),
                 ),
               ),
-              SizedBox(height: 150),
+              SizedBox(height: 70),
               SizedBox(
                 width: double.infinity,
                 height: 70,
@@ -188,6 +186,7 @@ class _FormInputState extends State<FormInput> {
                           borderRadius: BorderRadius.all(Radius.circular(20)))),
                   onPressed: () {
                     // login(nohpController.text);
+                    print(namaController.text);
                   },
                   child: Text(
                     "Tampilkan Profile",
